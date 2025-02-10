@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Torn API Fetch</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        #output {
+            background-color: #2d2d2d;
+            color: #ffffff;
+            padding: 10px;
+            border-radius: 5px;
+            overflow: auto;
+            max-height: 300px;
+            white-space: pre-wrap;
+        }
+        code {
+            font-family: "Courier New", monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>Torn API Fetch</h1>
+    <label for="apiKey">Enter API Key:</label>
+    <input type="text" id="apiKey">
+    <button onclick="fetchLogs()">Fetch Logs</button>
+
+    <p id="progress">Waiting for input...</p>
+    <p id="totalMoneyEarned">Total Money Earned: $0</p>
+    <pre id="output"><code>Logs will appear here...</code></pre>
+
+    <script src="script.js"></script>
+</body>
+</html>
