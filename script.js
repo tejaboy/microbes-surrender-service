@@ -29,7 +29,7 @@ async function fetchLogs() {
             const data = await response.json();
             
             if (!data.log) {
-                outputElement.textContent = "Invalid response or no logs found.";
+                outputElement.textContent = "Invalid response or no logs found. Is it Full Access API key?";
                 return;
             }
 
@@ -42,7 +42,7 @@ async function fetchLogs() {
 
                     const timeDiff = Math.floor(Date.now() / 1000) - log.timestamp; // in seconds
                     const daysAgo = Math.floor(timeDiff / 86400); // Calculate number of days
-                    statusElement.innerHTML = `Completed! You were last jailed ${daysAgo} days ago. You have an estimated arrest value of <strong>$${parseInt(totalMoneyEarned * 0.1).toLocaleString()}</strong>.`;
+                    statusElement.innerHTML = `Completed! You were last jailed ${daysAgo} days ago. You have an estimated arrest value of <u>$${parseInt(totalMoneyEarned * 0.1).toLocaleString()}</u>.`;
                     
                     allFilteredLogs[key] = {
                         log: log.log,

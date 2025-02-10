@@ -29,3 +29,13 @@ html, body {
 code {
     font-family: "Courier New", monospace;
 }
+
+a {
+    text-decoration: none;
+    color: rgb(9, 107, 255);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #e5ff00;
+}
