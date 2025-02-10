@@ -1,0 +1,17 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+#output {
+    background-color: #2d2d2d;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    overflow: auto;
+    max-height: 300px;
+    white-space: pre-wrap;
+}
+
+code {
+    font-family: "Courier New", monospace;
+}
