@@ -4,19 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Torn API Fetch</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
     <link rel="stylesheet" href="stylesheet.css">
 </head>
 <body>
-    <h1>Torn API Fetch</h1>
-    <label for="apiKey">Enter API Key:</label>
-    <input type="text" id="apiKey">
-    <button onclick="fetchLogs()">Fetch Logs</button>
+    <div class="container">
+        <h1 class="center-align">Torn API Fetch</h1>
+        <div class="input-field">
+            <input type="text" id="apiKey">
+            <label for="apiKey">Enter API Key</label>
+        </div>
+        <button class="btn waves-effect waves-light" onclick="fetchLogs()">Fetch Logs</button>
 
-    <p id="status">Status: waiting for input ...</p>
-    <p id="progress"></p>
-    <p id="totalMoneyEarned">Total Money Earned: $0</p>
-    <pre id="output"><code>Logs will appear here...</code></pre>
+        <p id="status" class="flow-text">Status: waiting for input ...</p>
+        <p id="progress" class="flow-text"></p>
+        <p id="totalMoneyEarned" class="flow-text">Total Money Earned: $0</p>
+        <pre id="output" class="card-panel grey darken-3 white-text"><code>Logs will appear here...</code></pre>
+    </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
