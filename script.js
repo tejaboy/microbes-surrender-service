@@ -68,7 +68,6 @@ async function fetchLogs() {
                             money_gained: moneyGained
                         };
                         totalMoneyEarned += moneyGained;
-                        console.log(totalMoneyEarned);
                     }
                 }
 
