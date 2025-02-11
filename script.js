@@ -59,7 +59,7 @@ async function fetchLogs() {
                     break;
                 }
 
-                if (log.log === 9015) {
+                if (log.log === 9015 || log.log === 5720) {
                     const moneyGained = log.data.money_gained || 0;
                     if (!allFilteredLogs[key]) {  // Check if the key doesn't already exist
                         allFilteredLogs[key] = {
