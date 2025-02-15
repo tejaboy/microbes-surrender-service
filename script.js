@@ -1,8 +1,28 @@
+document.addEventListener("DOMContentLoaded", () => {
+    const apiKeyInput = document.getElementById("apiKey");
+    const rememberCheckbox = document.getElementById("rememberApi");
+
+    // Load saved API key if available
+    const savedApiKey = localStorage.getItem("apiKey");
+    if (savedApiKey) {
+        apiKeyInput.value = savedApiKey;
+        rememberCheckbox.checked = true;
+        M.updateTextFields();
+    }
+});
+
 async function fetchLogs() {
-    const apiKey = document.getElementById("apiKey").value.trim();
+    const apiKeyInput = document.getElementById("apiKey");
+    const rememberCheckbox = document.getElementById("rememberApi");
+    const apiKey = apiKeyInput.value.trim();
+
     if (!apiKey) {
         alert("Please enter an API key.");
         return;
+    }
+
+    if (rememberCheckbox.checked) {
+        localStorage.setItem("apiKey", apiKey);
     }
 
     let to = null;
@@ -27,7 +47,7 @@ async function fetchLogs() {
         try {
             const response = await fetch(url);
             const data = await response.json();
-            
+
             if (!data.log) {
                 outputElement.textContent = "Invalid response or no logs found. Is it Full Access API key?";
                 return;
@@ -43,7 +63,7 @@ async function fetchLogs() {
                     const timeDiff = Math.floor(Date.now() / 1000) - log.timestamp; // in seconds
                     const daysAgo = Math.floor(timeDiff / 86400); // Calculate number of days
                     statusElement.innerHTML = `Completed! You were last jailed ${daysAgo} days ago. You have an estimated arrest value of <u>$${parseInt(totalMoneyEarned * 0.1).toLocaleString()}</u>.`;
-                    
+
                     allFilteredLogs[key] = {
                         log: log.log,
                         title: log.title,
@@ -51,7 +71,7 @@ async function fetchLogs() {
                         category: log.category,
                         time: log.data.time,
                         reason: log.data.reason,
-                    }
+                    };
 
                     outputElement.innerHTML = `<code>${JSON.stringify(allFilteredLogs, null, 2)}</code>`;
                     progressElement.textContent = `Requests made: ${requestCount}`;
@@ -61,7 +81,7 @@ async function fetchLogs() {
 
                 if (log.log === 9015 || log.log === 5720) {
                     const moneyGained = log.data.money_gained || 0;
-                    if (!allFilteredLogs[key]) {  // Check if the key doesn't already exist
+                    if (!allFilteredLogs[key]) {
                         allFilteredLogs[key] = {
                             log: log.log,
                             title: log.title,
@@ -89,6 +109,4 @@ async function fetchLogs() {
             break;
         }
     }
-
-
 }

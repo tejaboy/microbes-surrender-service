@@ -10,10 +10,19 @@
 <body>
     <div class="container">
         <h1 class="center-align">Microbes's Surrender Service</h1>
+
         <div class="input-field">
             <input type="text" id="apiKey">
             <label for="apiKey">Enter API Key (Full Access)</label>
         </div>
+
+        <p>
+            <label>
+                <input type="checkbox" id="rememberApi" class="filled-in">
+                <span>Remember API</span>
+            </label>
+        </p>
+
         <button class="btn waves-effect waves-light" onclick="fetchLogs()">Fetch Logs</button>
 
         <p id="status" class="flow-text">Status: waiting for input ...</p>
